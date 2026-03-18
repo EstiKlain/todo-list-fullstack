@@ -2,7 +2,7 @@ import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
 // 1. הגדרת כתובת ה-API שלך (תבדקי אם הפורט 5163 נכון אצלך!)
-const apiUrl = "http://localhost:5163";
+const apiUrl = " https://todo-list-server-wesl.onrender.com";
 axios.defaults.baseURL = apiUrl;
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -93,5 +93,5 @@ export default {
             return null;
         }
     },
-    
+
 };
