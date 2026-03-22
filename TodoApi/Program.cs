@@ -46,8 +46,10 @@ builder.Services.AddSwaggerGen(options =>
 var connectionString = builder.Configuration.GetConnectionString("ToDoDB");
 
 // 2. רישום ה-DbContext (MySQL)
+// builder.Services.AddDbContext<TododbContext>(options =>
+//     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 builder.Services.AddDbContext<TododbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 0))));
 // 3. רישום שירות האימות (Dependency Injection)
 builder.Services.AddScoped<IAuthService, AuthService>();
 
